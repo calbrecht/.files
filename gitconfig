@@ -1,0 +1,5 @@
+[user]
+	email = christian.albrecht@mayflower.de
+	name = Christian Albrecht
+[push]
+	default = current

@@ -1,0 +1,116 @@
+SyncState *
+Sync All
+Create Slave
+
+IMAPAccount imapaccount-1
+Host mail.mayflower.de
+Port 143
+User christian.albrecht@mayflower.de
+PassCmd "pass show mail/christian.albrecht@mayflower.de"
+RequireCRAM no
+RequireSSL yes
+UseSSLv2 no
+UseSSLv3 no
+UseTLSv1 yes
+
+IMAPStore imapstore-1
+Account imapaccount-1
+Path ""
+
+MaildirStore maildir-1
+Path ~/Mail/christian.albrecht@mayflower.de/
+MapInbox ""
+
+Group Mayflower Confluence-1 Drafts-1 Github-1 Inbox-1 Jira-1 Sent-1 Spam-1 Trash-1 Xing-1
+
+Channel Confluence-1
+Master :imapstore-1:Confluence
+Slave :maildir-1:Confluence
+
+Channel Drafts-1
+Master :imapstore-1:Drafts
+Slave :maildir-1:Drafts
+
+Channel Github-1
+Master :imapstore-1:Github
+Slave :maildir-1:Github
+
+Channel Inbox-1
+Master :imapstore-1:INBOX
+Slave :maildir-1:Inbox
+
+Channel Jira-1
+Master :imapstore-1:Jira
+Slave :maildir-1:Jira
+
+Channel Sent-1
+Master :imapstore-1:Sent
+Slave :maildir-1:Sent
+
+Channel Spam-1
+Master :imapstore-1:Spam
+Slave :maildir-1:Spam
+
+Channel Trash-1
+Master :imapstore-1:Trash
+Slave :maildir-1:Trash
+
+Channel Xing-1
+Master :imapstore-1:Xing
+Slave :maildir-1:Xing
+
+IMAPAccount imapaccount-2
+Host hutzelberger.de
+Port 143
+User chris@ngse.de
+PassCmd "pass show mail/chris@ngse.de"
+RequireCRAM no
+CertificateFile /home/alab/.ssh/hutzelbergerMailCA.pem
+RequireSSL yes
+UseSSLv2 no
+UseSSLv3 no
+UseTLSv1 no
+UseTLSv1 yes
+
+IMAPStore imapstore-2
+Account imapaccount-2
+Path ""
+
+MaildirStore maildir-2
+Path ~/Mail/chris@ngse.de/
+MapInbox ""
+
+Group Ngse Archive-2 Drafts-2 Inbox-2 Sent-2 Spam-2 Trash-2 Public-2
+
+Channel Archive-2
+Master :imapstore-2:Archive
+Slave :maildir-2:Archive
+
+Channel Drafts-2
+Master :imapstore-2:Drafts
+Slave :maildir-2:Drafts
+
+Channel Inbox-2
+Master :imapstore-2:INBOX
+Slave :maildir-2:Inbox
+
+#Channel MaybeSpam-2
+#Master :imapstore-2:Maybe\ Spam
+#Slave :maildir-2:Maybe\ Spam
+
+Channel Sent-2
+Master :imapstore-2:Sent
+Slave :maildir-2:Sent
+
+Channel Spam-2
+Master :imapstore-2:Spam
+Slave :maildir-2:Spam
+
+Channel Trash-2
+Master :imapstore-2:Trash
+Slave :maildir-2:Trash
+
+Channel Public-2
+Master :imapstore-2:Public
+Slave :maildir-2:Public
+

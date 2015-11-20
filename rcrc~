@@ -1,3 +1,0 @@
-DOTFILES_DIRS="$HOME/.files $HOME/.private"
-EXCLUDES="rcrc *~"
-SYMLINK_DIRS="gnupg password-store ssh"

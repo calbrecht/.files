@@ -67,3 +67,8 @@
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+
+(setq vc-follow-symlinks nil)
